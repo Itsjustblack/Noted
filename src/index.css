@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Red Hat Display", sans-serif;
+}
+
+button:hover,
+button:focus {
+	outline: none;
+}
+
+input[type="text"]:hover,
+input[type="text"]:focus,
+input[type="text"]:active {
+	outline: none;
+	border: none;
+}
+
+img {
+	-webkit-user-drag: none;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.carousel {
+	animation: carouselAnimation 15s linear infinite;
+}
+
+@keyframes carouselAnimation {
+	0% {
+		left: -1100px;
+	}
+	100% {
+		left: 1200px;
+	}
+}
+
+/* .textClamp {
+	font-size: clamp(2.5rem, 3vw + 1rem, 3.75rem);
+} */
+
+/* SideNav */
+
+/* .navItems > hr {
+	display: block;
+	width: 100%;
+	color: black;
+	border-color: black;
+} */
