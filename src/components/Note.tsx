@@ -5,7 +5,7 @@ import { NoteType } from "..";
 const Note: React.FC<NoteType> = ({ title, body }) => {
 	return (
 		<Link
-			to="/edit-note"
+			to="/new-note"
 			className="max-h-[200px] max-w-[220px] min-w-[170px] border border-[#EDEDED] rounded-lg px-3 py-4 hover:scale-105 transition-transform duration-300"
 		>
 			<h3 className="font-bold trackng-wide mb-1">{title}</h3>

@@ -9,7 +9,7 @@ interface ProfileProps {
 
 const Profile: FC<ProfileProps> = ({ userName }) => {
 	return (
-		<div className="px-4 h-[48px] py-2 items-center justify-self-end max-w-[193px] w-full flex gap-x-2 bg-black rounded-[100px]">
+		<div className="px-4 h-[48px] py-2 items-center justify-self-end max-w-[193px] w-full flex gap-x-2 bg-black rounded-[100px] z-50">
 			<img
 				className="w-[32px] h-[32px]"
 				src={profilePic}

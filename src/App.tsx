@@ -1,8 +1,7 @@
 import Home from "@pages/Home";
 import SideNav from "./components/Nav/SideNav";
 import { Route, Routes } from "react-router";
-import AddNote from "@pages/AddNote";
-import EditNote from "@pages/EditNote";
+import ViewNote from "@pages/ViewNote";
 
 function App() {
 	return (
@@ -14,11 +13,7 @@ function App() {
 				/>
 				<Route
 					path="/new-note"
-					element={<AddNote />}
-				/>
-				<Route
-					path="/edit-note"
-					element={<EditNote />}
+					element={<ViewNote />}
 				/>
 			</Routes>
 		</SideNav>
