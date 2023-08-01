@@ -1,4 +1,4 @@
-// import Profile from "../components/Nav/Profile";
+import Profile from "../components/Nav/Profile";
 import Pointers from "../components/Nav/Pointers";
 import QuickNote from "../components/QuickNote";
 import Notes from "../components/Notes";
@@ -10,7 +10,7 @@ const Home = () => {
 			<header className="w-full h-[326px] pt-8 px-8 bg-heroBg bg-cover bg-center bg-no-repeat">
 				<div className="w-full items-center flex justify-between mb-10">
 					<Pointers />
-					{/* <Profile userName="Jason Aghedo" /> */}
+					<Profile userName="Jason Aghedo" />
 				</div>
 				<div className="w-full text-[#F2F2F2]">
 					<h1 className="font-bold gap-y-1 tracking-wide text-[36px] ">Good Morning, Jason.</h1>

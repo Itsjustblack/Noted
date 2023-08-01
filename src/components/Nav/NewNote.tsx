@@ -6,7 +6,7 @@ const NewNote = () => {
 	return (
 		<Link
 			to="/new-note"
-			className="bg-[#72C357] rounded-[100px] py-4 px-5 w-[230px] flex absolute right-[41px] bottom-8 items-center"
+			className="bg-[#72C357] rounded-[100px] py-4 px-5 w-[230px] flex absolute right-[41px] bottom-7 items-center"
 		>
 			<img
 				className="w-6 h-6 mr-2"

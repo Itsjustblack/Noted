@@ -6,20 +6,18 @@ import { useQuery } from "@tanstack/react-query";
 import { getNotes } from "../config/notes";
 import { NoteType } from "..";
 import NewNote from "./Nav/NewNote";
-// import { NoteType } from "..";
+import loading from "@icons/loading.svg";
 
 const Notes: FC = () => {
 	const [notes, setNotes] = useState<any>([]);
 
-	const res = useQuery({
+	const { isLoading } = useQuery({
 		queryKey: ["notes"],
 		queryFn: getNotes,
 		keepPreviousData: true,
 		onSuccess: (data) => {
 			setNotes(data);
-			console.log(data);
 		},
-		// onError: (error) => console.log(error?.message),
 	});
 	return (
 		<div className="relative mt-[170px] rounded-xl min-h-[300px] max-h-[60vh] mx-8 py-6 px-6 bg-white justify-between shadow-[0px_4px_32px_0px_#00000014]">
@@ -45,13 +43,20 @@ const Notes: FC = () => {
 				<button className="text-[#4E4E4E] tracking-wide pb-2 focus:text-[#72C357] focus:font-semibold border-transparent border-b-2 focus:border-b-[#72C357] transition-colors duration-500">Images</button>
 			</nav>
 			<div className="w-full py-3 flex space-x-[18px] relative">
-				{notes.map((note: NoteType) => (
-					<Note
-						key={note?.id}
-						title={note?.title}
-						body={note?.body}
+				{!isLoading ? (
+					notes.map((note: NoteType) => (
+						<Note
+							key={note?.id}
+							title={note?.title}
+							body={note?.body}
+						/>
+					))
+				) : (
+					<img
+						className="h-20 w-full"
+						src={loading}
 					/>
-				))}
+				)}
 			</div>
 			<NewNote />
 		</div>
