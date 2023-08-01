@@ -11,7 +11,7 @@ interface SideNavProps {
 
 const SideNav: FC<SideNavProps> = ({ children }) => {
 	return (
-		<div className="overflow-hidden">
+		<div className="overflow-hidden w-full">
 			<div className="max-w-[260px] fixed h-[100vh] pt-10 bg-[#0E100E] text-white">
 				<div className="px-6">
 					<img
@@ -44,8 +44,8 @@ const SideNav: FC<SideNavProps> = ({ children }) => {
 					/>
 				</div>
 			</div>
-			<div className="pl-[260px] relative">
-				<div className="w-[80vw] items-center flex justify-between mb-10 pt-8 px-8 top-0 absolute z-50">
+			<div className="pl-[260px]">
+				<div className="w-[79vw] items-center flex justify-between mb-10 pt-8 px-8 top-0 absolute z-50">
 					<Pointers />
 					<Profile userName="Jason Aghedo" />
 				</div>

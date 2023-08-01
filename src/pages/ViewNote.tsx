@@ -5,13 +5,20 @@ import Layout from "../components/Layout";
 
 const AddNote = () => {
 	const [open, setopen] = useState(false);
+	const [body, setBody] = useState("");
+
+	const countWords = (str: string): number => {
+		if (str == "") return 0;
+		else return str.trim().split(/\s+/).length;
+	};
+
 	return (
 		<Layout>
 			<div className="flex flex-col pt-[100px]">
 				<header className="px-8 flex w-full space-x-4 items-center text-[#7b7b7b] font-semibold text-sm">
 					<span className="">Tuesday, August 1st 2023</span>
 					<span className="">|</span>
-					<span className="">2 Words</span>
+					<span className="">{`${countWords(body)} Words`}</span>
 					<div
 						onClick={() => setopen((prev) => !prev)}
 						className="flex items-center space-x-1 pl-3 pr-2 py-1 rounded-xl bg-[#F7F7F7]"
@@ -31,6 +38,7 @@ const AddNote = () => {
 						type="text"
 					/>
 					<textarea
+						onChange={(e) => setBody(e.target.value)}
 						className="w-full text-xl text-black shadow-[0px_0.6px_6px_0px_#0000001a] border rounded-lg py-4 px-5 h-[350px] overflow-y-auto"
 						cols={30}
 						rows={10}
