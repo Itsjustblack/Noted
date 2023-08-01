@@ -4,7 +4,7 @@ module.exports = {
 		node: true,
 		es2021: true,
 	},
-	extends: ["eslint:recommended", "plugin:react/recommended", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
+	extends: ["eslint:recommended", "plugin:react/recommended", "plugin:@typescript-eslint/recommended", "plugin:@tanstack/eslint-plugin-query/recommended", "plugin:prettier/recommended"],
 	parser: "@typescript-eslint/parser",
 	parserOptions: {
 		ecmaFeatures: {
@@ -13,7 +13,7 @@ module.exports = {
 		ecmaVersion: "latest",
 		sourceType: "module",
 	},
-	plugins: ["react", "@typescript-eslint", "react-hooks", "prettier"],
+	plugins: ["react", "@typescript-eslint", "react-hooks", "@tanstack/query", "prettier"],
 	rules: {
 		"react/react-in-jsx-scope": "off",
 		"prettier/prettier": ["error", { endOfLine: "auto", useTabs: true }, { usePrettierrc: true }],

@@ -1,11 +1,28 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import others from "@icons/navIcons/others.svg";
 import calendar from "@icons/calendar.svg";
 import Note from "./Note";
+import { useQuery } from "@tanstack/react-query";
+import { getNotes } from "../config/notes";
+import { NoteType } from "..";
+import NewNote from "./Nav/NewNote";
+// import { NoteType } from "..";
 
 const Notes: FC = () => {
+	const [notes, setNotes] = useState<any>([]);
+
+	const res = useQuery({
+		queryKey: ["notes"],
+		queryFn: getNotes,
+		keepPreviousData: true,
+		onSuccess: (data) => {
+			setNotes(data);
+			console.log(data);
+		},
+		// onError: (error) => console.log(error?.message),
+	});
 	return (
-		<div className="mt-[170px] rounded-xl max-h-[60vh] mx-8 py-6 px-6 bg-white justify-between shadow-[0px_4px_32px_0px_#00000014]">
+		<div className="relative mt-[170px] rounded-xl min-h-[300px] max-h-[60vh] mx-8 py-6 px-6 bg-white justify-between shadow-[0px_4px_32px_0px_#00000014]">
 			<header className="flex justify-between mb-4">
 				<h2 className="text-[#4E4E4E] text-lg font-bold tracking-wide">NOTES 🗒</h2>
 				<div className="flex gap-x-4">
@@ -27,16 +44,16 @@ const Notes: FC = () => {
 				<button className="text-[#4E4E4E] tracking-wide pb-2 focus:text-[#72C357] focus:font-semibold border-transparent border-b-2 focus:border-b-[#72C357] transition-colors duration-500">Documents</button>
 				<button className="text-[#4E4E4E] tracking-wide pb-2 focus:text-[#72C357] focus:font-semibold border-transparent border-b-2 focus:border-b-[#72C357] transition-colors duration-500">Images</button>
 			</nav>
-			<div className="w-full overflow-hidden px-[35px] py-3">
-				<div className="flex space-x-[18px] relative">
-					<Note />
-					<Note />
-					<Note />
-					<Note />
-					<Note />
-					<Note />
-				</div>
+			<div className="w-full py-3 flex space-x-[18px] relative">
+				{notes.map((note: NoteType) => (
+					<Note
+						key={note?.id}
+						title={note?.title}
+						body={note?.body}
+					/>
+				))}
 			</div>
+			<NewNote />
 		</div>
 	);
 };
