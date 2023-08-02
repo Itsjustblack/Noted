@@ -15,6 +15,10 @@ function App() {
 					path="/new-note"
 					element={<ViewNote />}
 				/>
+				<Route
+					path="/edit-note/:id"
+					element={<ViewNote />}
+				/>
 			</Routes>
 		</SideNav>
 	);

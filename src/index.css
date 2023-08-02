@@ -10,6 +10,21 @@
 	padding: 0;
 }
 
+*::-webkit-scrollbar {
+	width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+	background: rgb(255, 255, 255);
+	border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+	border-radius: 20px; /* roundness of the scroll thumb */
+	border: 2px solid white;
+	background-color: darkgrey;
+}
+
 body {
 	font-family: "Red Hat Display", sans-serif;
 }
@@ -23,6 +38,11 @@ textarea {
 	box-shadow: none;
 
 	resize: none; /*remove the resize handle on the bottom right*/
+}
+
+input:disabled,
+textarea:disabled {
+	background: transparent;
 }
 
 button:hover,
@@ -56,19 +76,4 @@ img {
 	100% {
 		left: 1200px;
 	}
-}
-
-*::-webkit-scrollbar {
-	width: 8px;
-}
-
-*::-webkit-scrollbar-track {
-	background: rgb(255, 255, 255);
-	border-radius: 8px;
-}
-
-*::-webkit-scrollbar-thumb {
-	border-radius: 20px; /* roundness of the scroll thumb */
-	border: 2px solid white;
-	background-color: darkgrey;
 }

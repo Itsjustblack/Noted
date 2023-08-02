@@ -6,6 +6,7 @@ import { getNotes } from "../config/notes";
 import { NoteType } from "..";
 import NewNote from "./Nav/NewNote";
 import loading from "@icons/loading.svg";
+import { motion } from "framer-motion";
 
 const Notes: FC = () => {
 	const [notes, setNotes] = useState<any>([]);
@@ -15,6 +16,7 @@ const Notes: FC = () => {
 		queryFn: getNotes,
 		keepPreviousData: true,
 		onSuccess: (data) => {
+			console.log(data);
 			setNotes(data);
 		},
 	});
@@ -36,22 +38,28 @@ const Notes: FC = () => {
 				<button className="text-[#4E4E4E] tracking-wide pb-2 focus:text-[#72C357] focus:font-semibold border-transparent border-b-2 focus:border-b-[#72C357] transition-colors duration-500">Documents</button>
 				<button className="text-[#4E4E4E] tracking-wide pb-2 focus:text-[#72C357] focus:font-semibold border-transparent border-b-2 focus:border-b-[#72C357] transition-colors duration-500">Images</button>
 			</nav>
-			<div className="w-full py-3 flex space-x-[18px] relative">
-				{!isLoading ? (
-					notes.map((note: NoteType) => (
+			{!isLoading ? (
+				<motion.div
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ duration: 0.6 }}
+					className="w-full py-3 flex space-x-[18px] relative"
+				>
+					{notes.map((note: NoteType, index: number) => (
 						<Note
-							key={note?.id}
+							key={index}
+							id={note.id}
 							title={note?.title}
 							body={note?.body}
 						/>
-					))
-				) : (
-					<img
-						className="h-20 w-full"
-						src={loading}
-					/>
-				)}
-			</div>
+					))}
+				</motion.div>
+			) : (
+				<img
+					className="h-20 w-full"
+					src={loading}
+				/>
+			)}
 			<NewNote />
 		</div>
 	);
