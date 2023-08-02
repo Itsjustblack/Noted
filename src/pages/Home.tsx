@@ -7,10 +7,11 @@ const Home = () => {
 	return (
 		<Layout>
 			<div className="relative bg-[#F7F7F7] pb-8">
-				<header className="w-full h-[326px] pt-[100px] px-8 bg-heroBg bg-cover bg-center bg-no-repeat">
-					<div className="w-full text-[#F2F2F2]">
-						<h1 className="font-bold gap-y-1 tracking-wide text-[36px] ">Good Morning, Jason.</h1>
-						<h2 className="font-semibold">WEDNESDAY, AUGUST 17, 2022</h2>
+				<header className="w-full h-[326px] pt-[80px] px-8 bg-heroBg bg-cover bg-center bg-no-repeat">
+					<div className="w-full">
+						{/* Add Some Crazy Falling Letters Animation */}
+						<h1 className="font-bold gap-y-1 tracking-wide text-[45px] text-white">Good Morning, Jason</h1>
+						<h2 className="font-semibold text-[#F2F2F2]">WEDNESDAY, AUGUST 17, 2022</h2>
 					</div>
 				</header>
 				<div className="flex absolute px-8 space-x-6 top-[240px]">

@@ -3,7 +3,6 @@ import Logo from "../../assets/icons/logo.svg";
 import SearchBar from "../SearchBar";
 import NavItem from "./NavItem";
 import Profile from "./Profile";
-import Pointers from "./Pointers";
 
 interface SideNavProps {
 	children: JSX.Element;
@@ -45,10 +44,7 @@ const SideNav: FC<SideNavProps> = ({ children }) => {
 				</div>
 			</div>
 			<div className="pl-[260px]">
-				<div className="w-[79vw] items-center flex justify-between mb-10 pt-8 px-8 top-0 absolute z-50">
-					<Pointers />
-					<Profile userName="Jason Aghedo" />
-				</div>
+				<Profile userName="Jason Aghedo" />
 				<div className="overflow-y z-0">{children}</div>
 			</div>
 		</div>

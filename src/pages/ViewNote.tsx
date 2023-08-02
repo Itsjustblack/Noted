@@ -1,7 +1,9 @@
 import upArrow from "@icons/navIcons/upChevron.svg";
 import downArrow from "@icons/navIcons/downChevron.svg";
+import leftArrow from "@icons/navIcons/back.svg";
 import { useState } from "react";
 import Layout from "../components/Layout";
+import { Link } from "react-router-dom";
 
 const AddNote = () => {
 	const [open, setopen] = useState(false);
@@ -14,16 +16,21 @@ const AddNote = () => {
 
 	return (
 		<Layout>
-			<div className="flex flex-col pt-[100px]">
-				<header className="px-8 flex w-full space-x-4 items-center text-[#7b7b7b] font-semibold text-sm">
-					<span className="">Tuesday, August 1st 2023</span>
-					<span className="">|</span>
-					<span className="">{`${countWords(body)} Words`}</span>
+			<div className="flex flex-col pt-[80px] relative">
+				<header className="px-8 flex w-full items-center mb-5">
+					<Link to="/">
+						<img
+							className="w-6 h-6 object-cover mr-40"
+							src={leftArrow}
+							alt=""
+						/>
+					</Link>
+					<h1 className="text-[30px] font-bold tracking-wide text-center mr-10">New Note</h1>
 					<div
 						onClick={() => setopen((prev) => !prev)}
-						className="flex items-center space-x-1 pl-3 pr-2 py-1 rounded-xl bg-[#F7F7F7]"
+						className="flex cursor-pointer items-center space-x-1 pl-3 pr-2 py-1 rounded-xl bg-[#F7F7F7]"
 					>
-						<span className="text-black">Tags</span>
+						<span className="text-black font-semibold text-[15px] ">Tags</span>
 						<img
 							className="w-5 h-5 object-cover"
 							src={open ? upArrow : downArrow}
@@ -33,13 +40,20 @@ const AddNote = () => {
 				</header>
 				<main className="px-8">
 					<input
-						className="w-full text-[50px] font-bold tracking-wide mb-3 px-4"
-						placeholder="Enter a Title..."
+						className="w-full text-[30px] font-bold tracking-wide mb-2 placeholder:text-[#56595F]"
+						placeholder="Add a Title..."
 						type="text"
 					/>
+					<div className="flex space-x-2 text-[#7b7b7b] font-semibold text-[15px] mb-6">
+						<span>Tuesday, August 1st 2023</span>
+						<span>10:30</span>
+						<span>|</span>
+						<span>{`${countWords(body)} Words`}</span>
+					</div>
 					<textarea
 						onChange={(e) => setBody(e.target.value)}
-						className="w-full text-xl text-black shadow-[0px_0.6px_6px_0px_#0000001a] border rounded-lg py-4 px-5 h-[350px] overflow-y-auto"
+						placeholder="Type Something..."
+						className="w-full text-xl placeholder:text-[#56595F] text-black max-h-[350px] overflow-y-auto transition duration-500"
 						cols={30}
 						rows={10}
 					></textarea>

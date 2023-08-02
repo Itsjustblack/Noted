@@ -58,15 +58,17 @@ img {
 	}
 }
 
-/* .textClamp {
-	font-size: clamp(2.5rem, 3vw + 1rem, 3.75rem);
-} */
+*::-webkit-scrollbar {
+	width: 8px;
+}
 
-/* SideNav */
+*::-webkit-scrollbar-track {
+	background: rgb(255, 255, 255);
+	border-radius: 8px;
+}
 
-/* .navItems > hr {
-	display: block;
-	width: 100%;
-	color: black;
-	border-color: black;
-} */
+*::-webkit-scrollbar-thumb {
+	border-radius: 20px; /* roundness of the scroll thumb */
+	border: 2px solid white;
+	background-color: darkgrey;
+}

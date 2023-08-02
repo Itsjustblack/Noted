@@ -1,6 +1,5 @@
 import { FC, useState } from "react";
 import others from "@icons/navIcons/others.svg";
-import calendar from "@icons/calendar.svg";
 import Note from "./Note";
 import { useQuery } from "@tanstack/react-query";
 import { getNotes } from "../config/notes";
@@ -26,11 +25,6 @@ const Notes: FC = () => {
 				<div className="flex gap-x-4">
 					<img
 						src={others}
-						className="w-6 h-6"
-						alt=""
-					/>
-					<img
-						src={calendar}
 						className="w-6 h-6"
 						alt=""
 					/>
