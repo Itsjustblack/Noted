@@ -1,25 +1,13 @@
-import { FC, useState } from "react";
-import others from "@icons/navIcons/others.svg";
-import Note from "./Note";
-import { useQuery } from "@tanstack/react-query";
-import { getNotes } from "../config/notes";
-import { NoteType } from "..";
-import NewNote from "./Nav/NewNote";
 import loading from "@icons/loading.svg";
+import others from "@icons/navIcons/others.svg";
 import { motion } from "framer-motion";
+import useNotes from "../hooks/useNotes";
+import NewNote from "./Nav/NewNote";
+import Note from "./Note";
 
-const Notes: FC = () => {
-	const [notes, setNotes] = useState<any>([]);
+const Notes = () => {
+	const { data: notes, isLoading } = useNotes();
 
-	const { isLoading } = useQuery({
-		queryKey: ["notes"],
-		queryFn: getNotes,
-		keepPreviousData: true,
-		onSuccess: (data) => {
-			console.log(data);
-			setNotes(data);
-		},
-	});
 	return (
 		<div className="relative mt-[170px] rounded-xl min-h-[300px] max-h-[60vh] mx-8 py-6 px-6 bg-white justify-between shadow-[0px_4px_32px_0px_#00000014]">
 			<header className="flex justify-between mb-4">
@@ -45,7 +33,7 @@ const Notes: FC = () => {
 					transition={{ duration: 0.6 }}
 					className="w-full py-3 flex space-x-[18px] relative"
 				>
-					{notes.map((note: NoteType, index: number) => (
+					{notes?.map((note, index) => (
 						<Note
 							key={index}
 							id={note.id}

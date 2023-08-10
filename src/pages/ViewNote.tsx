@@ -1,25 +1,25 @@
+import check from "@icons/check.svg";
+import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import { getNote } from "../config/notes";
-import { NoteType } from "..";
-import check from "@icons/check.svg";
+import { getNote } from "../services/noteService";
 // import upArrow from "@icons/navIcons/upChevron.svg";
 // import downArrow from "@icons/navIcons/downChevron.svg";
 import leftArrow from "@icons/navIcons/back.svg";
 import Layout from "../components/Layout";
 
 const AddNote = () => {
-	const { id } = useParams();
+	const { id = "" } = useParams();
 	const { isSuccess } = useQuery({
 		queryKey: ["note", id],
 		queryFn: () => getNote(id),
 		enabled: !!id,
 		keepPreviousData: true,
-		onSuccess: (data: NoteType) => {
-			// console.log(data);
-			setTitle(data.title);
-			setBody(data.body);
+		onSuccess: (data) => {
+			if (data) {
+				setTitle(data.title);
+				setBody(data.body);
+			}
 		},
 	});
 
